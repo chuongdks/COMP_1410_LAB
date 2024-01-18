@@ -1,0 +1,89 @@
+Initial Setup:
+
+    permList is an array to store the current permutation.
+    permSize is initially set to 0.
+    nameList contains the names "A", "B", and "C".
+    nameSize is 3.
+
+Initial Call:
+
+
+PrintAllPermutations(permList, 0, nameList, 3);
+
+The function is called to generate permutations starting from an empty permutation (permList) and considering all names in nameList.
+
+First Iteration (i = 0):
+
+    swap(&nameList[0], &nameList[0]) does nothing as it's swapping the element with itself.
+    permList[0] = nameList[0] sets the first element of the current permutation to "A".
+    The function is then called recursively with PrintAllPermutations(permList, 1, nameList, 3).
+
+Second Iteration (i = 1):
+
+    swap(&nameList[1], &nameList[1]) does nothing.
+    permList[1] = nameList[1] sets the second element of the current permutation to "B".
+    Recursive call: PrintAllPermutations(permList, 2, nameList, 3).
+
+Third Iteration (i = 2):
+
+    swap(&nameList[2], &nameList[2]) does nothing.
+    permList[2] = nameList[2] sets the third element of the current permutation to "C".
+    Recursive call: PrintAllPermutations(permList, 3, nameList, 3).
+
+Base Case (permSize == nameSize):
+
+    Since permSize is now equal to nameSize (3), it prints the current permutation: "A, B, C".
+
+Backtracking:
+
+    The function returns to the previous level (permSize = 2).
+    The loop continues to the next iteration (i = 2), but there are no more elements left, so it proceeds to backtrack again.
+
+Backtracking (permSize = 1):
+
+    The function returns to the previous level (permSize = 1).
+    It increments i to 2, and the loop continues with the next iteration.
+
+Second Iteration (i = 2):
+
+    The process repeats with the second permutation: "A, C, B".
+    After printing this permutation, the function backtracks again.
+
+Backtracking (permSize = 0):
+
+    The function returns to the initial level (permSize = 0).
+    It increments i to 1, and the loop continues.
+
+Third Iteration (i = 1):
+
+    The process repeats with the third permutation: "B, A, C".
+    After printing this permutation, the function backtracks again.
+
+Backtracking (permSize = 0):
+
+    The function returns to the initial level (permSize = 0).
+    It increments i to 2, and the loop continues.
+
+Fourth Iteration (i = 2):
+
+    The process repeats with the fourth permutation: "B, C, A".
+    After printing this permutation, the function backtracks again.
+
+Backtracking (permSize = 0):
+
+    The function returns to the initial level (permSize = 0).
+    It increments i to 3, but there are no more elements left in the loop.
+
+End of Function:
+
+    The function exits, and all permutations have been generated and printed.
+
+So, the output for the input "3 A B C" would be:
+
+A, B, C
+A, C, B
+B, A, C
+B, C, A
+C, B, A
+C, A, B
+Each line corresponds to a unique permutation of the input names.
