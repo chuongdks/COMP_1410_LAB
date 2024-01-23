@@ -3,11 +3,11 @@
 #include <stdlib.h>
 
 int main(void) {
-    //char string[1000] = {'\0'};
-    char string[1000] = "This is a test to Test! to is this is A test to this test! This is a test, to Test to: is this Is A test to this test is This A Test"; //put word manually here
+    char string[1000] = {'\0'};
+    //char string[1000] = "This is a test to Test! to is this is A test to this test! This is a test, to Test to: is this Is A test to this test is This A Test"; //put word manually here
     printf("Original word: ");
-    //fgets(string, sizeof(string), stdin);  // read string from user, include the spacebar
-    //string[strlen(string)-1] = '\0';
+    fgets(string, sizeof(string), stdin);  // read string from user, include the spacebar
+    string[strlen(string)-1] = '\0';
     puts(string);    // display string
     printf ("\n");
 
