@@ -7,17 +7,20 @@ typedef struct IntNode_struct {
    struct IntNode_struct* previousNodePtr;
 } IntNode;
 
-IntNode* headObj  = NULL; // Create intNode objects
+// Create intNode objects
+IntNode* headObj  = NULL; 
 IntNode* lastObj  = NULL;
 
 // Constructor
-void IntNode_Create(IntNode* thisNode, int dataInit, IntNode* nextLoc, IntNode* previousLoc) {
+void IntNode_Create (IntNode* thisNode, int dataInit, IntNode* nextLoc, IntNode* previousLoc) 
+{
    thisNode->dataVal = dataInit;
    thisNode->nextNodePtr = nextLoc;
    thisNode->previousNodePtr = previousLoc;
 }
 
-void IntNode_InsertAfter(IntNode* thisNode, IntNode* newNode) {   
+void IntNode_InsertAfter (IntNode* thisNode, IntNode* newNode) 
+{   
 	newNode->nextNodePtr = thisNode->nextNodePtr;
    // If the new node is adding to the end of the linkedlist
 	if (thisNode->nextNodePtr != NULL)
@@ -33,8 +36,8 @@ void IntNode_InsertAfter(IntNode* thisNode, IntNode* newNode) {
    }
 }
 
-void IntNode_InsertBefore(IntNode* thisNode, IntNode* newNode) {   
-	// Practice for the next session by you
+void IntNode_InsertBefore (IntNode* thisNode, IntNode* newNode) 
+{   
 	if (thisNode->previousNodePtr != NULL) //If this node previous node is not Null, we could assign the this.prev.next to the new node
    {
 		thisNode->previousNodePtr->nextNodePtr = newNode;
@@ -48,28 +51,32 @@ void IntNode_InsertBefore(IntNode* thisNode, IntNode* newNode) {
    }
 }
 
-void IntNode_Delete(IntNode* thisNode) {
+void IntNode_Delete (IntNode* thisNode) 
+{
 	thisNode->previousNodePtr->nextNodePtr = thisNode->nextNodePtr;
 	thisNode->nextNodePtr->previousNodePtr = thisNode->previousNodePtr;
 	free(thisNode); //remember to free or we will have memory leak from the heap
 }
 
 // Print dataVal
-void IntNode_PrintNodeData(IntNode* thisNode) {
+void IntNode_PrintNodeData (IntNode* thisNode) 
+{
    printf("%d\n", thisNode->dataVal);
 }
 
 // Grab location pointed by nextNodePtr
-IntNode* IntNode_GetNext(IntNode* thisNode) {
+IntNode* IntNode_GetNext (IntNode* thisNode) 
+{
    return thisNode->nextNodePtr;
 }
 
 // Grab location pointed by previousNodePtr
-IntNode* IntNode_GetPrevious(IntNode* thisNode) {
+IntNode* IntNode_GetPrevious (IntNode* thisNode) 
+{
    return thisNode->previousNodePtr;
 }
 
-void IntNode_Clear(IntNode* firstNode)
+void IntNode_Clear (IntNode* firstNode)
 {
    //clear the list completely
    IntNode* currentNode = firstNode;
