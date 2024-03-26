@@ -99,6 +99,7 @@ int main(void) {
     int index = 0;
     int synonymFound = 0;
     
+    // Use fgets to read the whole line before the bew line '\n'
     while (fgets(str, sizeof(str), file) != NULL) 
     {
         //if the synonym word is found
